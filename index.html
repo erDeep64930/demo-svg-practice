@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>svg tutorial</title>
+  </head>
+  <body>
+    <div class="line-container"></div>
+
+    <section class="one">
+      <h1 class="scroll" data-rate="0.4" data-direction="vertical">
+        Ocean Stuff
+      </h1>
+    </section>
+
+    <section class="two">
+      <h1 class="scroll" data-rate="0.4" data-direction="vertical">
+        Omg Scroll
+      </h1>
+      <p>Big Water ways</p>
+    </section>
+    <section>
+        <div class="banner">
+            <video autoplay muted loop>
+              <source src="https://pixabay.com/videos/butterfly-dovetail-insect-drexel-172451/" type="video/mp4">
+            </video>
+            <h2>video</h2>
+            <h2 id="h2">video</h2>
+          </div>
+    </section>
+  </body>
+ 
+  <script>
+    let path = document.querySelector("path");
+    let pathLength = path.getTotalLength();
+    path.style.strokeDasharray = pathLength + " " + pathLength;
+    path.style.strokeDashoffset = pathLength;
+    window.addEventListener("scroll", () => {
+      // what % down it is
+      var scrollPercentage =
+        (document.getElement.scrollTop + document.body.scrollTop) /
+        (document.documentElement.scrollHeight -
+          document.documentElement.clientHeight);
+
+      // length to offset the dashes
+      var drawLength = pathLength * scrollPercentage;
+      // draw in reverse
+      path.style.strokeDashoffset = pathLength - drawLength;
+
+      const target = document.querySelectorAll(".scroll");
+       
+    });
+  </script>
+</html>
